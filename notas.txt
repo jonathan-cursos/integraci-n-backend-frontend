@@ -1,0 +1,16 @@
+El patrón de software Backend for Frontend
+
+-Es un patrón arquitectónico para crear backends separados para frontend específicos
+  o multiples interfaces, tanto móviles como web.
+
+  
+Preparación del servidor e instalación de dependencias
+
+-Las dependencias que instalamos por aparte a demás de las que ya habían son:
+  -passport
+  -passport-http
+  -@hapi/boom
+  -axios
+  -@babel/polyfill: Para trabajar con async/await
+  -cookie-parser
+  -express-session
