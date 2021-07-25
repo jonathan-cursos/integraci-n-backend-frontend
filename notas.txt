@@ -1,8 +1,19 @@
-Probando nuestro registro de usuario
+Integración del inicio de sesión
 
--Aquí debemos ir a la configuración de la estrategia basica en el servidor, quitar donde usemos config, y sus valores quitarlos.
--En lugar de estos, usar las variables de entorno.
--El resto será igual.
--Al levantar esta app, debe abrirnos una interfaz.
+Action:
+  -Como payload vamos a recibir el email y password.
+  -Al realizar el llamado al API interna, debemos pasar dentro de la conf del llamado, un objeto 'auth'. Que tendrá como elementos:
+    .username: Será el email del payload.
+    .password: Igual, del payload.
+  -Sí todo funcióna, los datos que nos traerá los guardamos en una cookie del navegador para cada dato. Para ello:
+    .document.cookie = `email=${data.user.email}`; Este es un ejemplo para la cookie del email.
+    .Haremos esto tambien para: name, id, token.
 
-NOTA: Nos falta la variable de la api, será un servidor local con la api del curso de passport.
+Login.jsx:
+  -Cambiamos el action al que recien creamos.
+  -El form debe tener un boton de tipo submit que envie datos.
+
+Server:
+  -Lo unico que cambiamos es la conf de la cookie.
+  -Para ello, ambos elementos tendrán el valor: !(ENV === "development");
+  -Para que funcione, dentro de las variables de entorno, debemos tener configurada 'ENV', con valor 'development'.
