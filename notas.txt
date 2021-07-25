@@ -1,12 +1,17 @@
-Instalación y configuración de Redux Thunk
+Configuración de registro de usuario
 
--Redux thunk es el que nos ayudará a que en los actions podamos usar dispatch.
--Este dispatch lo usaremos para llamar ciertas acciones dependiendo de si la llamada a la API dentro del action fue exitosa, u otras acciones.
--Un thunk es una función retornada dentro de otra función, similar a como vimos en el curso de redux.
+Actions:
+  -La carpeta de actions está en frontend.
+  -Para hacerlo y usar dispatch, creamos la función, está tendrá el payload y otros datos, y dentro retorna otra función, está trae el dispatch.
+  -Todo lo hacemos dentro de la que estámos retornando.
+  -Ahí creamos uno, donde usaremos axios para hacer el registro, y lo haremos a la api interna.
+  -Sí funciona, pasamos los datos traídos del registro al dispatch, y redireccionamos a login con window.location.href.
 
-Para usarlo:
-  -Lo instalamos: redux-thunk.
-  -Lo importamos, junto con applyMiddleware y compose de redux.
-  -Creamos una constante llamada composeEnhancers, con su valor: window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-  -Al crear el store, pasamos esta constante que será un metodo, como parametro el applyMiddleware, y como parametro el thunk.
-  -Este thunk será un middleware.
+Register.jsx:
+  -Para registro teniamos otro action, ahora llamamos el que acabamos de crear.
+  -En lugar de redirigir aquí, como 2do param al invocar este action pasamos la ruta.
+
+-server > post de registro:
+  -En el, haremos el post con axios a la api, pero ya no vendrá en config, sino en las variables de entorno.
+  -Le debemos pasar como datos el nombre, email y password, y guardar el resultado en una variable.
+  -Responderemos con un objeto con el nombre, el email, y el id, este ultimo lo obtenemos del post a la api.
