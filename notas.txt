@@ -1,19 +1,7 @@
-Integración del inicio de sesión
+Validación de rutas
 
-Action:
-  -Como payload vamos a recibir el email y password.
-  -Al realizar el llamado al API interna, debemos pasar dentro de la conf del llamado, un objeto 'auth'. Que tendrá como elementos:
-    .username: Será el email del payload.
-    .password: Igual, del payload.
-  -Sí todo funcióna, los datos que nos traerá los guardamos en una cookie del navegador para cada dato. Para ello:
-    .document.cookie = `email=${data.user.email}`; Este es un ejemplo para la cookie del email.
-    .Haremos esto tambien para: name, id, token.
-
-Login.jsx:
-  -Cambiamos el action al que recien creamos.
-  -El form debe tener un boton de tipo submit que envie datos.
-
-Server:
-  -Lo unico que cambiamos es la conf de la cookie.
-  -Para ello, ambos elementos tendrán el valor: !(ENV === "development");
-  -Para que funcione, dentro de las variables de entorno, debemos tener configurada 'ENV', con valor 'development'.
+-Para validar las rutas estamos pasando una constante que lea algun dato para saber sí estamos o no logueados.
+-En nuestra app estamos leyendo el id del estado inicial de la app, donde, sí no está, no estará logueado.
+-Dicho dato lo pasaremos como booleano al router, donde imprimirá un componente u otro en una ruta en caso de que ese boleano sea falso o verdader.
+  .Esto lo validamos en la prop Component.
+-Como en nuestra app, renderizamos rutas en el servidor, cambiamos valores en el serverRoutes y en el server.
