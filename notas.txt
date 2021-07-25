@@ -1,7 +1,5 @@
-Validación de rutas
+Integración del cierre de sesión
 
--Para validar las rutas estamos pasando una constante que lea algun dato para saber sí estamos o no logueados.
--En nuestra app estamos leyendo el id del estado inicial de la app, donde, sí no está, no estará logueado.
--Dicho dato lo pasaremos como booleano al router, donde imprimirá un componente u otro en una ruta en caso de que ese boleano sea falso o verdader.
-  .Esto lo validamos en la prop Component.
--Como en nuestra app, renderizamos rutas en el servidor, cambiamos valores en el serverRoutes y en el server.
+-Para cerrar la sesión, limpiaremos los valores de las cookies que guardamos en el documento.
+  .Para hacerlo: document.cookie = "email=";
+-Luego redirigir a la ruta de login o a la que se desea.
