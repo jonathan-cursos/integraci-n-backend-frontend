@@ -1,16 +1,12 @@
-El patrón de software Backend for Frontend
+Instalación y configuración de Redux Thunk
 
--Es un patrón arquitectónico para crear backends separados para frontend específicos
-  o multiples interfaces, tanto móviles como web.
+-Redux thunk es el que nos ayudará a que en los actions podamos usar dispatch.
+-Este dispatch lo usaremos para llamar ciertas acciones dependiendo de si la llamada a la API dentro del action fue exitosa, u otras acciones.
+-Un thunk es una función retornada dentro de otra función, similar a como vimos en el curso de redux.
 
-  
-Preparación del servidor e instalación de dependencias
-
--Las dependencias que instalamos por aparte a demás de las que ya habían son:
-  -passport
-  -passport-http
-  -@hapi/boom
-  -axios
-  -@babel/polyfill: Para trabajar con async/await
-  -cookie-parser
-  -express-session
+Para usarlo:
+  -Lo instalamos: redux-thunk.
+  -Lo importamos, junto con applyMiddleware y compose de redux.
+  -Creamos una constante llamada composeEnhancers, con su valor: window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+  -Al crear el store, pasamos esta constante que será un metodo, como parametro el applyMiddleware, y como parametro el thunk.
+  -Este thunk será un middleware.
